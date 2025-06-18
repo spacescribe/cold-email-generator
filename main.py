@@ -3,6 +3,7 @@ from llm_helper import LLM
 from portfolio import Portfolio
 from web_loader import Loader
 from email_generator import EmailGenerator
+from utils import clean_text
 
 def start_streamlit_app(llm, portfolio):
     st.title("Cold email generator")
@@ -12,7 +13,7 @@ def start_streamlit_app(llm, portfolio):
     if submit_btn:
         try:
             loader= Loader(url_input)
-            job_desc=loader.get_loaded_data()
+            job_desc=clean_text(loader.get_loaded_data())
             print(f"[DEBUG] start_streamlit_app: {job_desc}")
             email_gen=EmailGenerator(llm, portfolio, job_desc)
             email=email_gen.generate_email()

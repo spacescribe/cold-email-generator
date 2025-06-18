@@ -21,7 +21,11 @@ class EmailGenerator:
             following keys: `role`, `experience`, `skills` and `description`. Just give a single json object and not an unnecessary list of json.
             Only return the valid JSON.
             ### VALID JSON (NO PREAMBLE):   
-            ### INSTRUCTION: ONLY return a valid JSON object containing the following keys: `role`, `experience`, `skills`, and `description`. DO NOT include any explanation or extra text. Make sure the JSON is properly formatted and valid. 
+            Make sure:
+            - The JSON is not inside a list or string.
+            - There are no trailing commas or missing braces.
+            - No extra explanations or text.
+            Return ONLY the JSON object. Nothing else.
         """
         )
 
